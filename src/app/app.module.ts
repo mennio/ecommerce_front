@@ -10,6 +10,7 @@ import { PCBUREAUComponent } from './pc-bureau/pc-bureau.component';
 import { PCAccessoiresComponent } from './pc-accessoires/pc-accessoires.component';
 import { ConnexionComponent } from './connexion/connexion.component';
 import { PhonesModule } from './modules/phones/phones.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { PhonesModule } from './modules/phones/phones.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    PhonesModule
+    PhonesModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
