@@ -11,6 +11,8 @@ import { PCAccessoiresComponent } from './pc-accessoires/pc-accessoires.componen
 import { ConnexionComponent } from './connexion/connexion.component';
 import { PhonesModule } from './modules/phones/phones.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { SecondnavbarComponent } from './secondnavbar/secondnavbar.component';
+
 
 @NgModule({
   declarations: [
@@ -20,7 +22,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     PCPORTABLEComponent,
     PCBUREAUComponent,
     PCAccessoiresComponent,
-    ConnexionComponent
+    ConnexionComponent,
+    SecondnavbarComponent
   ],
   imports: [
     BrowserModule,
