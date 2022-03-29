@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AppComponent } from './app.component';
 import { ConnexionComponent } from './connexion/connexion.component';
 import { HomeComponent } from './home/home.component';
 import { PCAccessoiresComponent } from './pc-accessoires/pc-accessoires.component';
@@ -12,6 +13,15 @@ const routes: Routes = [
   {path : "PcBureau", component: PCBUREAUComponent},
   {path : "PcAccessoires", component: PCAccessoiresComponent},
   {path : "Connexion", component: ConnexionComponent},
+  /*{path : '',
+   component : AppComponent,
+   children : [
+    {
+      path : 'Connexion',
+      component : ConnexionComponent
+    }
+   ]
+  }*/
 ];
 
 @NgModule({

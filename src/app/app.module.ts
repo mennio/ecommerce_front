@@ -13,6 +13,13 @@ import { PhonesModule } from './modules/phones/phones.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SecondnavbarComponent } from './secondnavbar/secondnavbar.component';
 
+import {MatCardModule} from '@angular/material/card';
+import {MatButtonModule} from '@angular/material/button';
+import {MatInputModule} from '@angular/material/input';
+import {MatIconModule} from '@angular/material/icon';
+
+import {ReactiveFormsModule} from '@angular/forms';
+
 
 @NgModule({
   declarations: [
@@ -29,7 +36,12 @@ import { SecondnavbarComponent } from './secondnavbar/secondnavbar.component';
     BrowserModule,
     AppRoutingModule,
     PhonesModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatCardModule,
+    MatButtonModule,
+    MatInputModule,
+    ReactiveFormsModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]
