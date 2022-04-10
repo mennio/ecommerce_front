@@ -19,6 +19,13 @@ import {MatInputModule} from '@angular/material/input';
 import {MatIconModule} from '@angular/material/icon';
 
 import {ReactiveFormsModule} from '@angular/forms';
+import { TelSmartphoneComponent } from './tel-smartphone/tel-smartphone.component';
+import { TelFixeComponent } from './tel-fixe/tel-fixe.component';
+import { TelAccessoiresComponent } from './tel-accessoires/tel-accessoires.component';
+import { StockageDisquedurComponent } from './stockage-disquedur/stockage-disquedur.component';
+import { StockageCleusbComponent } from './stockage-cleusb/stockage-cleusb.component';
+import { StockageAccessoiresComponent } from './stockage-accessoires/stockage-accessoires.component';
+import { PanierComponent } from './panier/panier.component';
 
 
 @NgModule({
@@ -30,7 +37,14 @@ import {ReactiveFormsModule} from '@angular/forms';
     PCBUREAUComponent,
     PCAccessoiresComponent,
     ConnexionComponent,
-    SecondnavbarComponent
+    SecondnavbarComponent,
+    TelSmartphoneComponent,
+    TelFixeComponent,
+    TelAccessoiresComponent,
+    StockageDisquedurComponent,
+    StockageCleusbComponent,
+    StockageAccessoiresComponent,
+    PanierComponent
   ],
   imports: [
     BrowserModule,
