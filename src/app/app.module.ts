@@ -26,6 +26,7 @@ import { StockageDisquedurComponent } from './stockage-disquedur/stockage-disque
 import { StockageCleusbComponent } from './stockage-cleusb/stockage-cleusb.component';
 import { StockageAccessoiresComponent } from './stockage-accessoires/stockage-accessoires.component';
 import { PanierComponent } from './panier/panier.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -55,7 +56,8 @@ import { PanierComponent } from './panier/panier.component';
     MatButtonModule,
     MatInputModule,
     ReactiveFormsModule,
-    MatIconModule
+    MatIconModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
