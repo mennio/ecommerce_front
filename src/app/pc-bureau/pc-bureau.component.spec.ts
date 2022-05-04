@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { PCBUREAUComponent } from './pc-bureau.component';
+import {PCBUREAUComponent} from './pc-bureau.component';
 
 describe('PCBUREAUComponent', () => {
   let component: PCBUREAUComponent;
@@ -8,9 +8,9 @@ describe('PCBUREAUComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ PCBUREAUComponent ]
+      declarations: [PCBUREAUComponent]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {
