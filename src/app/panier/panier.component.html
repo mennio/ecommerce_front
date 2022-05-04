@@ -1,18 +1,27 @@
+<h1 class="paiement-align"> Votre panier</h1>
+
 <div class="container">
-    <div class="my-4 h4" style="text-align: center">
-     Votre panier :
-    </div>
-  
-    <div class="card" style="width: 18rem;">
-        <img src="/assets/images/ordinateur/pc_bureau/ordi2.jpg"  class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Ordinateur 2</h5>
-          <p class="card-text">Grosse carte graphique.</p>
-        </div>
-        </div>
-  
-    <div class='my-4'>
-      <button class="btn btn-success">Passer au paiement</button>
+    <div class="row p-1">
+      <div class="col-md-6 col-xl-4 py-2">
+        <mat-card class="pcbureau-card">
+          <mat-card-header>
+            <mat-card-title class="pcaccessoires-align">Tapis de souris</mat-card-title>
+          </mat-card-header>
+          <img mat-card-image src="/assets/images/ordinateur/accessoires/accessoire1.jpg" alt="Photo de tapis de souris.">
+          <mat-card-content>
+            <p>
+             Tapis de souris gaming. Dimension 90*30 cm.
+            </p>
+          </mat-card-content>
+          <mat-card-actions>
+            <button mat-button color="primary">Voir le descriptif</button>
+            <button mat-button color="primary">Modifier</button>
+            <button mat-button color="primary">Supprimer</button>
+          </mat-card-actions>
+        </mat-card>
+      </div>
     </div>
   </div>
-  
+  <div class='paiement-align'>
+    <button class="btn btn-success">Passer au paiement</button>
+  </div>
