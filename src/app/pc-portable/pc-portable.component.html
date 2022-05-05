@@ -18,7 +18,7 @@
         <mat-card-actions>
           <button mat-button color="primary" data-bs-toggle="modal" data-bs-target="#getPcPortable" (click)="getPc(pc)">Voir le descriptif</button>
           <button mat-button color="primary" data-bs-toggle="modal" data-bs-target="#editPcPortable" (click)="editPcPortable(pc)">Modifier</button> <!--(click)="editPcPortable()-->
-          <button mat-button color="primary">Delete</button> 
+          <button mat-button color="primary" (click)="deletePcPortable(pc)">Delete</button> 
         </mat-card-actions>
       </mat-card>
     </div>
@@ -71,26 +71,26 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <form [formGroup]="portableDetail">
+        <form #updateForm="ngForm" (ngSubmit)="updatePcPortable(updateForm,portableObj)">
           <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">Titre</label>
-            <input type="text" formControleName="article" value="{{portableObj.article}}" class="form-control" >
+            <input type="text" ngModel name="article" value="{{portableObj.article}}" class="form-control" >
           </div>
           <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">Caractéristique</label>
-            <input type="text" formControleName="caracteristique" value="{{portableObj.caracteristique}}" class="form-control" >
+            <input type="text" ngModel name="caracteristique" value="{{portableObj.caracteristique}}" class="form-control" >
           </div>
           <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">Prix</label>
-            <input type="text" formControleName="prix" value="{{portableObj.prix}}" class="form-control">
+            <input type="text" ngModel name="prix" value="{{portableObj.prix}}" class="form-control">
           </div>
           <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">lien image</label>
-            <input type="text" formControleName="image" value="{{portableObj.image}}" class="form-control" >
+            <input type="text" ngModel name="image" value="{{portableObj.image}}" class="form-control" >
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            <button type="button" type="submit" class="btn btn-primary" (click)="updatePcPortable()">Modifier un ordinateur</button>
+            <button type="button" [disabled]="addForm.invalid" type="submit" class="btn btn-primary">Modifier un ordinateur</button>
           </div>
         </form>
       </div>

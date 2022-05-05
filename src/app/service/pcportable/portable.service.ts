@@ -25,13 +25,13 @@ export class PortableService {
   }
 
   
-  updatePcPortable(pcPortable : Portable): Observable<Portable[]> {
-    return this.http.put<Portable[]>(this.PcPortableURL,pcPortable);
+  updatePcPortable(pcPortable : Portable,pc : Portable): Observable<Portable[]> {
+    return this.http.put<Portable[]>(this.PcPortableURL+'/'+pc.id,pcPortable);
   }
 
-  /*
-  deletePcPortable(pcPortable : Portable): Observable<Portable[]> {
-    return this.http.put<Portable[]>(this.PcPortableURL, pcPortable)
-  }*/
+  
+  deletePcPortable(pcPortable : Portable): Observable<Portable> {
+    return this.http.delete<Portable>(this.PcPortableURL+'/'+pcPortable.id)
+  }
 
 }

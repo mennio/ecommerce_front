@@ -39,21 +39,14 @@ export class PCPORTABLEComponent implements OnInit {
     });
   }
 
-  updatePcPortable(){
-    /*this.portableObj.id = this.portableDetail.value.id;
-    this.portableObj.article = this.portableDetail.value.article;
-    this.portableObj.caracteristique = this.portableDetail.value.caracteristique;
-    this.portableObj.prix = this.portableDetail.value.prix;
-    this.portableObj.image = this.portableDetail.value.image;
-
-    console.log(this.portableObj)
-
-    this.portableService.updatePcPortable(this.portableObj).subscribe(res => {
+  updatePcPortable(updateForm : NgForm, pc : Portable){
+    console.log(updateForm.value)
+    this.portableService.updatePcPortable(updateForm.value, pc  ).subscribe(res => {
       console.log(res)
       this.getAllPcPortable();
     }, err => {
       console.log(err);
-    });*/
+    });
   }
 
   getAllPcPortable() {
@@ -76,6 +69,15 @@ export class PCPORTABLEComponent implements OnInit {
 
   getPc(pc : Portable){
     this.portableObj = pc;
+  }
+
+  deletePcPortable(pc : Portable){
+    this.portableService.deletePcPortable(pc).subscribe(res => {
+      console.log(res);
+      this.getAllPcPortable();
+    }, err => {
+      console.log("error while fetching data.")
+    });
   }
 
   
