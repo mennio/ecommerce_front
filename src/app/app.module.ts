@@ -18,7 +18,7 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatInputModule} from '@angular/material/input';
 import {MatIconModule} from '@angular/material/icon';
 
-import {ReactiveFormsModule} from '@angular/forms';
+import {ReactiveFormsModule, FormsModule} from '@angular/forms';
 import {TelSmartphoneComponent} from './tel-smartphone/tel-smartphone.component';
 import {TelFixeComponent} from './tel-fixe/tel-fixe.component';
 import {TelAccessoiresComponent} from './tel-accessoires/tel-accessoires.component';
@@ -56,9 +56,9 @@ import {HttpClientModule} from '@angular/common/http';
     MatCardModule,
     MatButtonModule,
     MatInputModule,
-    ReactiveFormsModule,
     MatIconModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

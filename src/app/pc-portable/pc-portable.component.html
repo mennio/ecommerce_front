@@ -1,22 +1,136 @@
+<button class="btn btn-outline-success" type="submit" data-bs-toggle="modal" data-bs-target="#addPcPortable">Ajouter
+  un Pc Portable
+</button>
+
 <div class="container">
   <div class="row p-1">
-    <div class="col-md-6 col-xl-4 py-2">
-      <mat-card class="pcportable-card">
+    <div class="col-md-6 col-xl-4 py-2" *ngFor="let pc of portableList">
+      <mat-card class="pcportable-card"> <!--*ngFor="let pc of portableList"-->
         <mat-card-header>
-          <mat-card-title class="pcportable-align">PC Portable Gaming Intel i7-9k</mat-card-title>
+          <mat-card-title class="pcportable-align">{{pc.article}}</mat-card-title> <!--t{{pc.article}}-->
         </mat-card-header>
-        <img mat-card-image src="/assets/images/ordinateur/pc_portable/pc1.jpg" alt="Photo de Pc portable">
+        <img mat-card-image src="{{pc.image}}" alt="Photo de Pc portable"> <!--{{pc.image}}-->
         <mat-card-content>
           <p>
-           Pc portable machine de guerre.
-          </p>
+            {{pc.caracteristique}}
+          </p> <!--{{pc.descriptif}}-->
         </mat-card-content>
         <mat-card-actions>
-          <button mat-button color="primary">Voir le descriptif</button>
-          <button mat-button color="primary">Modifier</button>
-          <button mat-button color="primary">Supprimer</button>
+          <button mat-button color="primary" data-bs-toggle="modal" data-bs-target="#getPcPortable" (click)="getPc(pc)">Voir le descriptif</button>
+          <button mat-button color="primary" data-bs-toggle="modal" data-bs-target="#editPcPortable" (click)="editPcPortable(pc)">Modifier</button> <!--(click)="editPcPortable()-->
+          <button mat-button color="primary">Delete</button> 
         </mat-card-actions>
       </mat-card>
+    </div>
+  </div>
+</div>
+
+<!--Modal Add-->
+<div class="modal fade" id="addPcPortable" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Ajouter un Pc Portable</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form #addForm="ngForm" (ngSubmit)="addPcPortable(addForm)">
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Titre</label>
+            <input type="text" ngModel name="article" class="form-control" >
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Caractéristique</label>
+            <input type="text" ngModel name="caracteristique" class="form-control" >
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Prix</label>
+            <input type="text" ngModel name="prix" class="form-control">
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">lien image</label>
+            <input type="text" ngModel name="image" class="form-control" >
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" [disabled]="addForm.invalid" type="submit" class="btn btn-primary" >Ajouter un ordinateur</button>
+          </div>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!--Modal update-->
+<div class="modal fade" id="editPcPortable" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modifier un Pc Portable</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="portableDetail">
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Titre</label>
+            <input type="text" formControleName="article" value="{{portableObj.article}}" class="form-control" >
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Caractéristique</label>
+            <input type="text" formControleName="caracteristique" value="{{portableObj.caracteristique}}" class="form-control" >
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Prix</label>
+            <input type="text" formControleName="prix" value="{{portableObj.prix}}" class="form-control">
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">lien image</label>
+            <input type="text" formControleName="image" value="{{portableObj.image}}" class="form-control" >
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" type="submit" class="btn btn-primary" (click)="updatePcPortable()">Modifier un ordinateur</button>
+          </div>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!--Modal get-->
+<div class="modal fade" id="getPcPortable" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modifier un Pc Portable</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="portableDetail">
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label"><strong>Titre :</strong></label> &nbsp;
+            <label for="exampleInputEmail1" class="form-label">{{portableObj.article}}</label>
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label"><strong>Caractéristique :</strong></label> &nbsp;
+            <label for="exampleInputEmail1" class="form-label">{{portableObj.caracteristique}}</label>
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label"><strong>Prix :</strong></label> &nbsp;
+            <label for="exampleInputEmail1" class="form-label">{{portableObj.prix}}</label>
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label"><strong>Lien Image :</strong></label> &nbsp;
+            <label for="exampleInputEmail1" class="form-label">{{portableObj.image}}</label>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          </div>
+        </form>
+      </div>
+
     </div>
   </div>
 </div>
